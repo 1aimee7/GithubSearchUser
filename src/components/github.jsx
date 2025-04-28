@@ -74,7 +74,7 @@ const Github = () => {
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button onClick={handleSearch} className="bg-blue-500 text-white px-4 py-2 sm:px-3 sm:py-1 rounded-lg hover:bg-blue-600 flex items-center space-x-2">
             <span>Search</span>
-            <FaArrowRight className="w-4 h-4" />
+            
           </button>
         </div>
 
