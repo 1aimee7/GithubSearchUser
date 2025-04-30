@@ -61,7 +61,7 @@ const Github = () => {
     <div className={`min-h-screen flex justify-center items-center p-4 sm:p-2 transition-colors duration-300 ${theme === 'light' ? 'bg-gray-100' : 'bg-[#141D2F]'}`}>
       <div className={`w-full max-w-2xl rounded-lg shadow-lg p-6 sm:p-4 ${theme === 'light' ? 'bg-white' : 'bg-[#1E2A47]'} transition-colors duration-300`}>
         
-        {/* Header */}
+        
         <div className="flex justify-between items-center mb-6 sm:mb-4">
           <h1 className={`text-xl font-bold ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>devfinder</h1>
           <button onClick={toggleTheme} className="flex items-center space-x-2">
@@ -72,7 +72,7 @@ const Github = () => {
           </button>
         </div>
 
-        {/* Search */}
+        
         <div className={`flex items-center space-x-3 p-4 sm:p-3 rounded-lg ${theme === 'light' ? 'bg-gray-50' : 'bg-[#141D2F]'} shadow-md`}>
           <FaSearch className={`w-5 h-5 ${theme === 'light' ? 'text-blue-500' : 'text-blue-400'}`} />
           <input
@@ -81,7 +81,7 @@ const Github = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             onKeyPress={handleKeyPress}
-            className={`flex-1 outline-none ${theme === 'light' ? 'bg-gray-50 text-gray-800 placeholder-gray-400' : 'bg-[#141D2F] text-white placeholder-gray-400'}`}
+            className={`flex-1 outline-none ${theme === 'light' ? 'bg-gray-50 text-gray-800 placeholder-gray-400' : 'bg-[#141D2F] text-white placeholder-white'}`}
           />
           <button
             onClick={handleSearch}
@@ -92,21 +92,21 @@ const Github = () => {
         </div>
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
-        {/* Loading */}
+        
         {loading ? (
           <div className="text-center py-8">
-            <h1 className={`${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>Loading...</h1>
+            <h1 className={`${theme === 'light' ? 'text-gray-600' : 'text-white'}`}>Loading...</h1>
           </div>
         ) : userData ? (
           <div className={`flex flex-col sm:flex-row gap-6 p-6 rounded-lg mt-6 ${theme === 'light' ? 'bg-gray-50' : 'bg-[#141D2F]'}`}>
-            {/* Avatar */}
+            
             <div className="flex-shrink-0">
               <img src={userData.avatar_url} alt="Avatar" className="w-24 h-24 rounded-full" />
             </div>
 
-            {/* Info */}
+            
             <div className="flex-1">
-              {/* Header */}
+              
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h2 className={`text-xl font-bold ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>
@@ -114,22 +114,22 @@ const Github = () => {
                   </h2>
                   <p className="text-blue-400">@{userData.login}</p>
                 </div>
-                <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-white'}`}>
                   {formatDate(userData.created_at)}
                 </p>
               </div>
 
-              {/* Bio */}
-              <p className={`mt-4 text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+              
+              <p className={`mt-4 text-sm ${theme === 'light' ? 'text-gray-600' : 'text-white'}`}>
                 {userData.bio || 'This profile has no bio'}
               </p>
 
-              {/* Stats */}
+             
               <div className={`mt-4 p-4 rounded-lg ${theme === 'light' ? 'bg-gray-100' : 'bg-[#1E2A47]'}`}>
                 <div className="flex justify-between text-center">
                   {['public_repos', 'followers', 'following'].map((key, idx) => (
                     <div key={idx}>
-                      <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                      <p className={`text-sm ${theme === 'light' ? 'text-gray-600' : 'text-white'}`}>
                         {key === 'public_repos' ? 'Repos' : key.charAt(0).toUpperCase() + key.slice(1)}
                       </p>
                       <p className={`text-lg font-semibold ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>
@@ -140,13 +140,13 @@ const Github = () => {
                 </div>
               </div>
 
-              {/* Additional Info */}
+              
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-sm">
-                <p className="flex items-center gap-2">
+                <p className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>
                   <FaMapMarkerAlt />
                   {userData.location || 'Not Available'}
                 </p>
-                <p className="flex items-center gap-2">
+                <p className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>
                   <FaLink />
                   {userData.blog ? (
                     <a
@@ -161,7 +161,7 @@ const Github = () => {
                     'Not Available'
                   )}
                 </p>
-                <p className="flex items-center gap-2">
+                <p className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>
                   <FaTwitter />
                   {userData.twitter_username ? (
                     <a
@@ -176,7 +176,7 @@ const Github = () => {
                     'Not Available'
                   )}
                 </p>
-                <p className="flex items-center gap-2">
+                <p className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>
                   <FaBuilding />
                   {userData.company || 'Not Available'}
                 </p>
