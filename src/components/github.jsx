@@ -39,7 +39,7 @@ const Github = () => {
   };
 
   useEffect(() => {
-    handleSearch('octocat'); 
+    handleSearch(''); 
   }, []);
 
   const handleKeyPress = (e) => {
